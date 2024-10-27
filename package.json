@@ -1,0 +1,47 @@
+{
+  "name": "destinedestates",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "@emotion/react": "^11.13.3",
+    "@emotion/styled": "^11.13.0",
+    "@headlessui/react": "^2.1.9",
+    "@lottiefiles/react-lottie-player": "^3.5.4",
+    "@mui/icons-material": "^6.1.1",
+    "@mui/lab": "^6.0.0-beta.10",
+    "@mui/material": "^6.1.1",
+    "@react-spring/parallax": "^9.7.4",
+    "@react-spring/web": "^9.7.4",
+    "classnames": "^2.5.1",
+    "framer-motion": "^11.11.7",
+    "import": "^0.0.6",
+    "next": "^14.2.12",
+    "react": "^18",
+    "react-dom": "^18",
+    "react-icons": "^5.3.0",
+    "react-intersection-observer": "^9.13.1",
+    "react-lottie-player": "^2.1.0",
+    "react-parallax": "^3.5.1",
+    "react-scroll": "^1.9.0",
+    "react-scroll-parallax": "^3.4.5",
+    "react-simple-typewriter": "^5.0.1",
+    "react-slick": "^0.30.2",
+    "react-spring": "^9.7.4",
+    "react-wavify": "^1.11.1",
+    "slick-carousel": "^1.8.1",
+    "styled-components": "^6.1.13",
+    "swiper": "^11.1.14"
+  },
+  "devDependencies": {
+    "eslint": "^8",
+    "eslint-config-next": "14.2.12",
+    "postcss": "^8",
+    "tailwindcss": "^3.4.1"
+  }
+}
