@@ -365,10 +365,7 @@ export default function WhyDestinedEstates() {
                       </p>
                     </blockquote>
                     <figcaption className="mt-6 text-sm leading-6 text-gray-600">
-                      <strong className="font-semibold text-gray-800">
-                        Rufus Vinoth,
-                      </strong>{" "}
-                      CEO at Destined Estates
+                      at Destined Estates
                     </figcaption>
                   </figure>
                 </div>
