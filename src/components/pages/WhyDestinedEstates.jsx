@@ -239,7 +239,7 @@ export default function WhyDestinedEstates() {
         <section className="relative py-20">
           <div className="container mx-auto px-6 lg:px-8 flex flex-col-reverse lg:flex-row items-center gap-12">
             {/* Second Section Content */}
-            <div className="w-full order-3 lg:order-1 lg:w-1/2 lg:order-1 mt-8 lg:mt-0">
+            <div className="w-full order-3 lg:order-4 lg:w-1/2 lg:order-1 mt-8 lg:mt-0">
               <h2 className="text-3xl sm:text-4xl font-bold mb-6 text-left text-amber-700">
                 Our Professionals
               </h2>
