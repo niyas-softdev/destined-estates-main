@@ -94,77 +94,6 @@ const sliderSettings = {
   cssEase: "linear"
 };
 
-// Numbers Section with Counting Effect
-const NumbersSection = () => {
-  const sectionRef = useRef(null);
-  const [isVisible, setIsVisible] = useState(false);
-
-  // Intersection Observer to check if the section is visible
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            setIsVisible(true);
-          }
-        });
-      },
-      { threshold: 0.5 }
-    );
-
-    if (sectionRef.current) {
-      observer.observe(sectionRef.current);
-    }
-
-    return () => {
-      if (sectionRef.current) {
-        observer.unobserve(sectionRef.current);
-      }
-    };
-  }, []);
-
-  // Number values with counting effect
-  const raisedCount = useCountUp(0, 150, 2000, isVisible); // $0 to $150M in 2 seconds
-  const companiesCount = useCountUp(0, 30, 2000, isVisible); // 0 to 30K in 2 seconds
-  const dealsCount = useCountUp(0, 1.5, 2000, isVisible); // 0 to 1.5M in 2 seconds
-  const leadsCount = useCountUp(0, 200, 2000, isVisible); // 0 to 200M in 2 seconds
-
-  return (
-    <div ref={sectionRef} className="max-lg:mt-16 lg:col-span-1">
-      <p className="text-base font-semibold leading-7 text-gray-500">
-        The numbers
-      </p>
-      <hr className="mt-6 border-t border-gray-200" />
-      <dl className="mt-6 grid grid-cols-1 gap-x-8 gap-y-4 sm:grid-cols-2">
-        <div className="flex flex-col gap-y-2 border-b border-dotted border-gray-200 pb-4">
-          <dt className="text-sm/6 text-gray-600">Raised</dt>
-          <dd className="order-first text-6xl font-semibold tracking-tight">
-            ${raisedCount}M
-          </dd>
-        </div>
-        <div className="flex flex-col gap-y-2 border-b border-dotted border-gray-200 pb-4">
-          <dt className="text-sm/6 text-gray-600">Companies</dt>
-          <dd className="order-first text-6xl font-semibold tracking-tight">
-            {companiesCount}K
-          </dd>
-        </div>
-        <div className="flex flex-col gap-y-2 max-sm:border-b max-sm:border-dotted max-sm:border-gray-200 max-sm:pb-4">
-          <dt className="text-sm/6 text-gray-600">Deals Closed</dt>
-          <dd className="order-first text-6xl font-semibold tracking-tight">
-            {dealsCount}M
-          </dd>
-        </div>
-        <div className="flex flex-col gap-y-2">
-          <dt className="text-sm/6 text-gray-600">Leads Generated</dt>
-          <dd className="order-first text-6xl font-semibold tracking-tight">
-            {leadsCount}M
-          </dd>
-        </div>
-      </dl>
-    </div>
-  );
-};
-
 export default function WhyDestinedEstates() {
   return (
     <ParallaxProvider>
@@ -302,74 +231,77 @@ export default function WhyDestinedEstates() {
         </section>
 
         {/* Our Promise Section with Light Theme */}
-        <section className="relative py-24 sm:py-32 bg-cover bg-center">
-          {/* Light Overlay with Gradient for a professional look */}
-          <div className="absolute inset-0 opacity-70" />
+        <section className="relative z-10 mt-32 bg-gray-900 pb-20 sm:mt-56 sm:pb-24 xl:pb-0">
+          {/* Background Gradient and Blurred Effect */}
+          <div aria-hidden="true" className="absolute inset-0 overflow-hidden">
+            <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 transform-gpu blur-3xl">
+              <div
+                style={{
+                  clipPath:
+                    "polygon(50% 0%, 75% 25%, 100% 50%, 75% 75%, 50% 100%, 25% 75%, 0% 50%, 25% 25%)",
+                  animation: "pulse 10s ease-in-out infinite"
+                }}
+                className="aspect-[1097/1023] w-[70rem] bg-gradient-to-r from-pink-400 via-purple-400 to-blue-500 opacity-30"
+              />
+            </div>
+          </div>
 
-          <div className="relative container mx-auto max-w-7xl px-6 lg:px-8">
-            <div className="mx-auto grid max-w-2xl lg:max-w-none lg:grid-cols-2 items-center gap-y-16 lg:gap-x-10">
-              {/* Right Content Section - Appears on top in mobile */}
-              <div className="order-1 lg:order-3">
-                <div className="text-base leading-7 text-gray-600 lg:max-w-lg">
-                  <h3 className="text-lg font-semibold leading-7 text-indigo-500">
-                    Our Promise To You
-                  </h3>
-                  <h1 className="mt-4 text-4xl font-semibold tracking-tight text-gray-900 sm:text-5xl">
-                    Innovative Marketing. Broadest Exposure. Faster Closings.
-                  </h1>
-                  <p className="mt-8">
+          <style jsx>{`
+            @keyframes pulse {
+              0%,
+              100% {
+                transform: scale(1);
+              }
+              50% {
+                transform: scale(1.1);
+              }
+            }
+          `}</style>
+
+          <div className="relative container mx-auto max-w-7xl flex flex-col items-center gap-x-8 gap-y-10 px-6 sm:gap-y-8 lg:px-8 xl:flex-row xl:items-stretch">
+            {/* Image Section */}
+            <div className="-mt-8 w-full max-w-2xl xl:-mb-8 xl:w-96 xl:flex-none">
+              <div className="relative aspect-[2/1] h-full md:-mx-8 xl:mx-0 xl:aspect-auto">
+                <img
+                  alt="Our Promise"
+                  src="/static/Assets/promise3.jpg"
+                  className="absolute inset-0 h-full w-full rounded-2xl bg-gray-800 object-cover shadow-2xl"
+                />
+              </div>
+            </div>
+
+            {/* Content Section */}
+            <div className="w-full max-w-2xl xl:max-w-none xl:flex-auto xl:px-16 xl:py-24">
+              <h3 className="text-lg font-semibold leading-7 text-indigo-500 mb-4">
+                Our Promise To You
+              </h3>
+              <figure className="relative isolate pt-6 sm:pt-12">
+                <svg
+                  fill="none"
+                  viewBox="0 0 162 128"
+                  aria-hidden="true"
+                  className="absolute left-0 top-0 -z-10 h-32 stroke-white/20"
+                >
+                  <path
+                    d="M65.5697 118.507L65.8918 118.89C68.9503 116.314 71.367 113.253 73.1386 109.71C74.9162 106.155 75.8027 102.28 75.8027 98.0919C75.8027 94.237 75.16 90.6155 73.8708 87.2314C72.5851 83.8565 70.8137 80.9533 68.553 78.5292C66.4529 76.1079 63.9476 74.2482 61.0407 72.9536C58.2795 71.4949 55.276 70.767 52.0386 70.767C48.9935 70.767 46.4686 71.1668 44.4872 71.9924L44.4799 71.9955L44.4726 71.9988C42.7101 72.7999 41.1035 73.6831 39.6544 74.6492C38.2407 75.5916 36.8279 76.455 35.4159 77.2394L35.4047 77.2457L35.3938 77.2525C34.2318 77.9787 32.6713 78.3634 30.6736 78.3634C29.0405 78.3634 27.5131 77.2868 26.1274 74.8257C24.7483 72.2185 24.0519 69.2166 24.0519 65.8071C24.0519 60.0311 25.3782 54.4081 28.0373 48.9335C30.703 43.4454 34.3114 38.345 38.8667 33.6325C43.5812 28.761 49.0045 24.5159 55.1389 20.8979C60.1667 18.0071 65.4966 15.6179 71.1291 13.7305C73.8626 12.8145 75.8027 10.2968 75.8027 7.38572C75.8027 3.6497 72.6341 0.62247 68.8814 1.1527C61.1635 2.2432 53.7398 4.41426 46.6119 7.66522C37.5369 11.6459 29.5729 17.0612 22.7236 23.9105C16.0322 30.6019 10.618 38.4859 6.47981 47.558L6.47976 47.558L6.47682 47.5647C2.4901 56.6544 0.5 66.6148 0.5 77.4391C0.5 84.2996 1.61702 90.7679 3.85425 96.8404L3.8558 96.8445C6.08991 102.749 9.12394 108.02 12.959 112.654L12.959 112.654L12.9646 112.661C16.8027 117.138 21.2829 120.739 26.4034 123.459L26.4033 123.459L26.4144 123.465C31.5505 126.033 37.0873 127.316 43.0178 127.316C47.5035 127.316 51.6783 126.595 55.5376 125.148L55.5376 125.148L55.5477 125.144C59.5516 123.542 63.0052 121.456 65.9019 118.881L65.5697 118.507Z"
+                    id="b56e9dab-6ccb-4d32-ad02-6b4bb5d9bbeb"
+                  />
+                  <use x={86} href="#b56e9dab-6ccb-4d32-ad02-6b4bb5d9bbeb" />
+                </svg>
+                <blockquote className="text-xl font-semibold leading-8 text-white sm:text-2xl sm:leading-9">
+                  <p>
                     Destined Estates ensures that your property gets
                     unparalleled visibility and promotion. We employ
                     sophisticated advertising strategies that generate interest,
                     leading to bigger offers and quicker transactions.
                   </p>
-                  <p className="mt-8">
-                    Trust our experienced team to create tailored marketing
-                    campaigns that meet your needs and maximize your home's
-                    potential.
-                  </p>
-                </div>
-              </div>
-
-              {/* Left Content Box - Image section */}
-              <div className="order-2 lg:order-2 lg:pr-8">
-                <div className="relative overflow-hidden rounded-3xl bg-white shadow-xl px-6 pb-8 pt-64 sm:px-12 lg:px-8">
-                  <img
-                    alt="Our Promise"
-                    src="/static/Assets/promise1.jpg"
-                    className="absolute inset-0 h-full w-full object-cover brightness-105"
-                  />
-                  <div className="absolute inset-0 bg-white/80 mix-blend-multiply" />
-
-                  <div
-                    aria-hidden="true"
-                    className="absolute left-1/2 top-1/2 -ml-16 -translate-x-1/2 -translate-y-1/2 transform-gpu blur-2xl"
-                  >
-                    <div
-                      style={{
-                        clipPath:
-                          "polygon(74.1% 44.1%, 100% 61.6%, 97.5% 26.9%, 85.5% 0.1%, 80.7% 2%, 72.5% 32.5%, 60.2% 62.4%, 52.4% 68.1%, 47.5% 58.3%, 45.2% 34.5%, 27.5% 76.7%, 0.1% 64.9%, 17.9% 100%, 27.6% 76.8%, 76.1% 97.7%, 74.1% 44.1%)"
-                      }}
-                      className="aspect-[1097/845] w-[68.5625rem] bg-gradient-to-tr from-blue-300 to-indigo-400 opacity-40"
-                    />
+                </blockquote>
+                <figcaption className="mt-8 text-base">
+                  <div className="font-semibold text-white">
+                    at Destined Estates
                   </div>
-
-                  <figure className="relative isolate">
-                    <blockquote className="mt-6 text-xl font-semibold leading-8 text-gray-800">
-                      <p>
-                        “Destined estate agents are backed by one of the real
-                        estate industry's most experienced and effective
-                        marketing teams, whose innovative campaigns and
-                        sophisticated advertising programs ensure the broadest
-                        exposure for our clients' homes.”
-                      </p>
-                    </blockquote>
-                    <figcaption className="mt-6 text-sm leading-6 text-gray-600">
-                      at Destined Estates
-                    </figcaption>
-                  </figure>
-                </div>
-              </div>
+                </figcaption>
+              </figure>
             </div>
           </div>
         </section>

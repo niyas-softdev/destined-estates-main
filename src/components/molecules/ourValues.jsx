@@ -57,24 +57,31 @@ export default function RealEstatePresence() {
           <div className="w-full md:w-5/12 lg:w-1/2 mb-8 md:mb-0">
             <div className="pr-0 md:pr-10">
               <div className="pb-6">
-                <div className="text-gray-700 font-bold text-lg uppercase mb-4 relative inline-block">
-                  Our Values
-                  <span className="absolute right-0 bottom-1 w-10 h-px bg-gray-300"></span>
-                </div>
-                <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold leading-snug mb-4 md:mb-6 bg-gradient-to-r from-blue-600 via-blue-400 to-teal-400 text-transparent bg-clip-text">
-                  We Lead in Real Estate <br /> Expertise & Trust
-                </h2>
-              </div>
+              <div className="flex items-center space-x-2 mb-6">
+    <div className="w-10 h-px bg-gradient-to-r from-teal-400 to-blue-600"></div>
+    <h3 className="text-xl text-teal-600 font-medium uppercase tracking-wider">
+      Our Values
+    </h3>
+  </div>
+
+  {/* Headline with Enhanced Styling */}
+  <h2 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold leading-tight mb-6 text-gray-900 dark:text-white">
+    <span className="relative">
+      {/* Decorative Accent Line */}
+      <span className="absolute inset-0 -bottom-1 h-2 bg-gradient-to-r from-blue-600 via-blue-400 to-teal-400 opacity-40 blur-md"></span>
+      We Lead in Real Estate
+    </span>
+    <br />
+    <span className="text-teal-600">Expertise & Trust</span>
+  </h2>
+</div>
               <p className="text-gray-600 text-base sm:text-lg leading-7 mb-6 md:mb-10">
                 From starting the conversation to sealing the deal, your
                 Destined estates agent is committed to earning and keeping your
                 trust forever. We&apos;re part of anywhere, a true leader in
                 residential Luxury real estate.
               </p>
-              <div className="text-gray-700 font-bold text-lg">
-                Request Quote:{" "}
-                <span className="text-blue-600">Destined Estates</span>
-              </div>
+              
             </div>
           </div>
 
