@@ -44,28 +44,28 @@ export default function RealEstatePresence() {
   ];
 
   return (
-    <section className="py-24 relative text-black">
-      <div className="container mx-auto">
+    <section className="py-12 md:py-24 relative text-black ">
+      <div className="container mx-auto px-4">
         <motion.div
-          className="flex flex-wrap items-center"
+          className="flex flex-col md:flex-row items-center justify-between"
           variants={fadeIn}
           initial="hidden"
           animate="visible"
           transition={transition}
         >
           {/* Content Column */}
-          <div className="w-full md:w-1/2 mb-10 md:mb-0">
-            <div className="pr-10">
-              <div className="pb-10">
+          <div className="w-full md:w-5/12 lg:w-1/2 mb-8 md:mb-0">
+            <div className="pr-0 md:pr-10">
+              <div className="pb-6">
                 <div className="text-gray-700 font-bold text-lg uppercase mb-4 relative inline-block">
                   Our Values
                   <span className="absolute right-0 bottom-1 w-10 h-px bg-gray-300"></span>
                 </div>
-                <h2 className="text-4xl md:text-6xl font-bold leading-snug mb-6 bg-gradient-to-r from-blue-600 via-blue-400 to-teal-400 text-transparent bg-clip-text">
+                <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold leading-snug mb-4 md:mb-6 bg-gradient-to-r from-blue-600 via-blue-400 to-teal-400 text-transparent bg-clip-text">
                   We Lead in Real Estate <br /> Expertise & Trust
                 </h2>
               </div>
-              <p className="text-gray-600 text-base md:text-lg leading-7 mb-10">
+              <p className="text-gray-600 text-base sm:text-lg leading-7 mb-6 md:mb-10">
                 From starting the conversation to sealing the deal, your
                 Destined estates agent is committed to earning and keeping your
                 trust forever. We&apos;re part of anywhere, a true leader in
@@ -79,27 +79,25 @@ export default function RealEstatePresence() {
           </div>
 
           {/* Image Column */}
-          <div className="w-full md:w-1/2 mb-10 md:mb-0 relative">
-            <div className="relative pl-10 ml-12">
-              <div className="relative overflow-hidden h-[300px] md:h-[400px] lg:h-[500px]">
-                <AnimatePresence initial={false} custom={direction}>
-                  <motion.div
-                    key={index}
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    exit={{ opacity: 0 }}
-                    transition={{ duration: 1 }}
-                    className="absolute inset-0 w-full h-full"
-                  >
-                    <Image
-                      src={images[index]}
-                      layout="fill"
-                      objectFit="cover"
-                      alt={`Slide ${index}`}
-                    />
-                  </motion.div>
-                </AnimatePresence>
-              </div>
+          <div className="w-full md:w-7/12 lg:w-1/2 relative">
+            <div className="relative overflow-hidden h-[250px] sm:h-[350px] md:h-[400px] lg:h-[500px]">
+              <AnimatePresence initial={false} custom={direction}>
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  exit={{ opacity: 0 }}
+                  transition={{ duration: 1 }}
+                  className="absolute inset-0 w-full h-full"
+                >
+                  <Image
+                    src={images[index]}
+                    layout="fill"
+                    objectFit="cover"
+                    alt={`Slide ${index}`}
+                  />
+                </motion.div>
+              </AnimatePresence>
             </div>
           </div>
         </motion.div>

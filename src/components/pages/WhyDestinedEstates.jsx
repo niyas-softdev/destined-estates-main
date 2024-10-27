@@ -170,14 +170,14 @@ export default function WhyDestinedEstates() {
     <ParallaxProvider>
       <div className="w-full h-full overflow-hidden bg-gradient-to-r from-purple-50 via-violet-100 to-indigo-50">
         {/* Two Section Template with Carousel */}
-        <section className="relative py-20 ">
-          <div className="container mx-auto px-6 lg:px-8 flex flex-col lg:flex-row items-center gap-12">
+        <section className="relative py-20">
+          <div className="container mx-auto px-6 lg:px-8 flex flex-col-reverse lg:flex-row items-center gap-12">
             {/* First Section Content */}
-            <div className="lg:w-1/2">
-              <h2 className="text-4xl font-bold mb-6 text-left text-blue-600">
+            <div className="w-full order-3 lg:order-1 lg:w-1/2 mt-8 lg:mt-0">
+              <h2 className="text-3xl sm:text-4xl font-bold mb-6 text-left text-blue-600">
                 Our Experience
               </h2>
-              <p className="text-lg lg:text-xl leading-relaxed text-gray-700">
+              <p className="text-base sm:text-lg lg:text-xl leading-relaxed text-gray-700">
                 Back in 2012, a young entrepreneur named Rufus Tenola Vinoth
                 founded his namesake residential real estate brokerage with a
                 small investment in a tiny office on the north side of Chennai.
@@ -185,7 +185,8 @@ export default function WhyDestinedEstates() {
                 and sellers realize their dreams ever since.
               </p>
             </div>
-            <div className="lg:w-1/2 overflow-hidden">
+
+            <div className="w-full order-2 lg:order-3 lg:w-1/2 overflow-hidden">
               <ScrollParallax speed={0}>
                 {/* Carousel for the first section */}
                 <Slider {...sliderSettings}>
@@ -199,11 +200,11 @@ export default function WhyDestinedEstates() {
                         height: "130%"
                       }}
                     >
-                      <div className="relative h-64 md:h-96">
+                      <div className="relative h-56 sm:h-64 md:h-80 lg:h-96">
                         <div className="absolute bottom-0 left-0 w-full h-16 bg-white bg-opacity-60 backdrop-blur-sm flex items-center justify-center">
                           <TypewriterH3
                             text="Experience the difference"
-                            className="text-blue-600 text-xl md:text-3xl font-semibold"
+                            className="text-blue-600 text-lg sm:text-xl md:text-3xl font-semibold"
                           />
                         </div>
                       </div>
@@ -219,11 +220,11 @@ export default function WhyDestinedEstates() {
                         height: "130%"
                       }}
                     >
-                      <div className="relative h-64 md:h-96">
+                      <div className="relative h-56 sm:h-64 md:h-80 lg:h-96">
                         <div className="absolute bottom-0 left-0 w-full h-16 bg-white bg-opacity-60 backdrop-blur-sm flex items-center justify-center">
                           <TypewriterH3
                             text="Explore Our Journey"
-                            className="text-blue-600 text-xl md:text-3xl font-semibold"
+                            className="text-blue-600 text-lg sm:text-xl md:text-3xl font-semibold"
                           />
                         </div>
                       </div>
@@ -235,21 +236,22 @@ export default function WhyDestinedEstates() {
           </div>
         </section>
 
-        <section className="relative py-20 ">
-          <div className="container mx-auto px-6 lg:px-8 flex flex-col lg:flex-row items-center gap-12">
+        <section className="relative py-20">
+          <div className="container mx-auto px-6 lg:px-8 flex flex-col-reverse lg:flex-row items-center gap-12">
             {/* Second Section Content */}
-            <div className="lg:w-1/2 lg:order-1">
-              <h2 className="text-4xl font-bold mb-6 text-left text-amber-700">
+            <div className="w-full order-3 lg:order-1 lg:w-1/2 lg:order-1 mt-8 lg:mt-0">
+              <h2 className="text-3xl sm:text-4xl font-bold mb-6 text-left text-amber-700">
                 Our Professionals
               </h2>
-              <p className="text-lg lg:text-xl leading-relaxed text-gray-700">
+              <p className="text-base sm:text-lg lg:text-xl leading-relaxed text-gray-700">
                 We know a real estate brokerage is only as good as its agents,
                 and Destined Estates has the industry's best and brightest,
                 carrying the flag of exceptionalism in our markets and across
                 the country. Wherever you've set your sights, we're there.
               </p>
             </div>
-            <div className="lg:w-1/2 overflow-hidden">
+
+            <div className="w-full order-1 lg:order-3 lg:w-1/2 overflow-hidden">
               <ScrollParallax speed={0}>
                 {/* Carousel for the second section */}
                 <Slider {...sliderSettings}>
@@ -263,11 +265,11 @@ export default function WhyDestinedEstates() {
                         height: "130%"
                       }}
                     >
-                      <div className="relative h-64 md:h-96">
+                      <div className="relative h-56 sm:h-64 md:h-80 lg:h-96">
                         <div className="absolute bottom-0 left-0 w-full h-16 bg-white bg-opacity-60 backdrop-blur-sm flex items-center justify-center">
                           <TypewriterH3
                             text="Meet Our Team"
-                            className="text-amber-700 text-xl md:text-3xl font-semibold"
+                            className="text-amber-700 text-lg sm:text-xl md:text-3xl font-semibold"
                           />
                         </div>
                       </div>
@@ -283,11 +285,11 @@ export default function WhyDestinedEstates() {
                         height: "130%"
                       }}
                     >
-                      <div className="relative h-64 md:h-96">
+                      <div className="relative h-56 sm:h-64 md:h-80 lg:h-96">
                         <div className="absolute bottom-0 left-0 w-full h-16 bg-white bg-opacity-60 backdrop-blur-sm flex items-center justify-center">
                           <TypewriterH3
                             text="Our Expertise"
-                            className="text-amber-700 text-xl md:text-3xl font-semibold"
+                            className="text-amber-700 text-lg sm:text-xl md:text-3xl font-semibold"
                           />
                         </div>
                       </div>
@@ -306,8 +308,31 @@ export default function WhyDestinedEstates() {
 
           <div className="relative container mx-auto max-w-7xl px-6 lg:px-8">
             <div className="mx-auto grid max-w-2xl lg:max-w-none lg:grid-cols-2 items-center gap-y-16 lg:gap-x-10">
-              {/* Left Content Box */}
-              <div className="lg:pr-8">
+              {/* Right Content Section - Appears on top in mobile */}
+              <div className="order-1 lg:order-3">
+                <div className="text-base leading-7 text-gray-600 lg:max-w-lg">
+                  <h3 className="text-lg font-semibold leading-7 text-indigo-500">
+                    Our Promise To You
+                  </h3>
+                  <h1 className="mt-4 text-4xl font-semibold tracking-tight text-gray-900 sm:text-5xl">
+                    Innovative Marketing. Broadest Exposure. Faster Closings.
+                  </h1>
+                  <p className="mt-8">
+                    Destined Estates ensures that your property gets
+                    unparalleled visibility and promotion. We employ
+                    sophisticated advertising strategies that generate interest,
+                    leading to bigger offers and quicker transactions.
+                  </p>
+                  <p className="mt-8">
+                    Trust our experienced team to create tailored marketing
+                    campaigns that meet your needs and maximize your home's
+                    potential.
+                  </p>
+                </div>
+              </div>
+
+              {/* Left Content Box - Image section */}
+              <div className="order-2 lg:order-2 lg:pr-8">
                 <div className="relative overflow-hidden rounded-3xl bg-white shadow-xl px-6 pb-8 pt-64 sm:px-12 lg:px-8">
                   <img
                     alt="Our Promise"
@@ -347,30 +372,6 @@ export default function WhyDestinedEstates() {
                     </figcaption>
                   </figure>
                 </div>
-              </div>
-
-              {/* Right Content Section */}
-              <div>
-                <div className="text-base leading-7 text-gray-600 lg:max-w-lg">
-                  <h3 className="text-lg font-semibold leading-7 text-indigo-500">
-                    Our Promise To You
-                  </h3>
-                  <h1 className="mt-4 text-4xl font-semibold tracking-tight text-gray-900 sm:text-5xl">
-                    Innovative Marketing. Broadest Exposure. Faster Closings.
-                  </h1>
-                  <p className="mt-8">
-                    Destined Estates ensures that your property gets
-                    unparalleled visibility and promotion. We employ
-                    sophisticated advertising strategies that generate interest,
-                    leading to bigger offers and quicker transactions.
-                  </p>
-                  <p className="mt-8">
-                    Trust our experienced team to create tailored marketing
-                    campaigns that meet your needs and maximize your home's
-                    potential.
-                  </p>
-                </div>
-               
               </div>
             </div>
           </div>
@@ -430,7 +431,7 @@ export default function WhyDestinedEstates() {
           <div className="mx-auto max-w-2xl px-6 lg:max-w-7xl lg:px-8">
             <div className="max-w-4xl">
               <h1 className="mt-2 text-pretty text-4xl font-semibold tracking-tight text-gray-900 sm:text-5xl">
-              Sell Your Home With Destined Estates
+                Sell Your Home With Destined Estates
               </h1>
               <p className="mt-6 text-balance text-xl leading-8 text-gray-700">
                 Whether you&apos;re ready to sell or just looking for answers,
