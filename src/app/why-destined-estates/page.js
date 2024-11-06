@@ -5,22 +5,22 @@ import Menu from "@/components/molecules/Menu";
 import Footer from "@/components/molecules/Footer";
 import { Parallax } from "@react-spring/parallax";
 
-const page = () => {
+const Page = () => {
   return (
     <div>
       <div className="relative">
         <Menu />
-        {/* HeroBanner below Menu */}
-        <div className="relative w-full h-[300px] overflow-hidden mb-2">
+        {/* Hero Banner below Menu */}
+        <div className="relative w-full h-[300px] overflow-hidden ">
           <div className="relative w-full flex transition-transform ease-in-out duration-1000">
             <div className="w-full flex-shrink-0">
               <img
-                src="\static\Assets\home1.jpg"
-                alt="who we are"
+                src="/static/Assets/home1.jpg"
+                alt="Who We Are"
                 className="w-full h-[300px] object-cover"
               />
-              {/* Dark overlay with blur effect */}
-              <div className="absolute inset-0 bg-black/60 backdrop-blur-sm z-10"></div>
+                           {/* Dark overlay with blur effect */}
+                           <div className="absolute inset-0 bg-black/20  z-10"></div>
             </div>
           </div>
 
@@ -40,4 +40,4 @@ const page = () => {
   );
 };
 
-export default page;
+export default Page;

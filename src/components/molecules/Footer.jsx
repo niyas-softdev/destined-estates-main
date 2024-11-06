@@ -1,6 +1,6 @@
 const Footer = () => {
     return (
-        <footer className="bg-[#1A1A2E] text-white p-12 w-full">
+        <footer className="bg-gradient-to-r from-gray-900 via-gray-800 to-black text-white p-12 w-full">
             <div className="container max-w-6xl grid grid-cols-1 md:grid-cols-3 gap-12">
                 {/* Left Section */}
                 <div>

@@ -13,13 +13,15 @@ const transition = {
 };
 
 const useSmallScreen = () => {
-  const [isSmallScreen, setIsSmallScreen] = React.useState(false);
-  React.useEffect(() => {
+  const [isSmallScreen, setIsSmallScreen] = useState(false);
+  
+  useEffect(() => {
     const handleResize = () => setIsSmallScreen(window.innerWidth <= 768);
     handleResize();
     window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);
   }, []);
+  
   return isSmallScreen;
 };
 
@@ -44,7 +46,7 @@ export default function RealEstatePresence() {
   ];
 
   return (
-    <section className="py-12 md:py-24 relative text-black ">
+    <section className="py-12 md:py-24 relative text-white bg-gradient-to-br from-gray-900 via-gray-800 to-blue-gray-900">
       <div className="container mx-auto px-4">
         <motion.div
           className="flex flex-col md:flex-row items-center justify-between"
@@ -57,31 +59,30 @@ export default function RealEstatePresence() {
           <div className="w-full md:w-5/12 lg:w-1/2 mb-8 md:mb-0">
             <div className="pr-0 md:pr-10">
               <div className="pb-6">
-              <div className="flex items-center space-x-2 mb-6">
-    <div className="w-10 h-px bg-gradient-to-r from-teal-400 to-blue-600"></div>
-    <h3 className="text-xl text-teal-600 font-medium uppercase tracking-wider">
-      Our Values
-    </h3>
-  </div>
+                <div className="flex items-center space-x-2 mb-6">
+                  <div className="w-10 h-px bg-gradient-to-r from-teal-400 to-blue-500"></div>
+                  <h3 className="text-xl text-teal-400 font-medium uppercase tracking-wider">
+                    Our Values
+                  </h3>
+                </div>
 
-  {/* Headline with Enhanced Styling */}
-  <h2 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold leading-tight mb-6 text-gray-900 dark:text-white">
-    <span className="relative">
-      {/* Decorative Accent Line */}
-      <span className="absolute inset-0 -bottom-1 h-2 bg-gradient-to-r from-blue-600 via-blue-400 to-teal-400 opacity-40 blur-md"></span>
-      We Lead in Real Estate
-    </span>
-    <br />
-    <span className="text-teal-600">Expertise & Trust</span>
-  </h2>
-</div>
-              <p className="text-gray-600 text-base sm:text-lg leading-7 mb-6 md:mb-10">
+                {/* Headline with Enhanced Styling */}
+                <h2 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold leading-tight mb-6 text-white">
+                  <span className="relative">
+                    {/* Decorative Accent Line */}
+                    <span className="absolute inset-0 -bottom-1 h-2 bg-gradient-to-r from-blue-500 via-blue-400 to-teal-400 opacity-40 blur-md"></span>
+                    We Lead in Real Estate
+                  </span>
+                  <br />
+                  <span className="text-teal-400">Expertise & Trust</span>
+                </h2>
+              </div>
+              <p className="text-gray-300 text-base sm:text-lg leading-7 mb-6 md:mb-10">
                 From starting the conversation to sealing the deal, your
                 Destined estates agent is committed to earning and keeping your
                 trust forever. We&apos;re part of anywhere, a true leader in
-                residential Luxury real estate.
+                residential luxury real estate.
               </p>
-              
             </div>
           </div>
 

@@ -123,17 +123,36 @@ const Menu = () => {
 
           {/* Right Side - Icons */}
           <div className="hidden xl:flex items-center space-x-6">
-            <MdEmail
-              color={scrolled ? "#ff8200" : "gray"}
-              size={28}
-              className="transition-transform duration-300 hover:scale-110"
-            />
-            <FaLocationDot
-              color={scrolled ? "#ff8200" : "gray"}
-              size={28}
-              className="transition-transform duration-300 hover:scale-110"
-            />
-          </div>
+      <div
+        className={`p-2 rounded-full transition-all duration-700 ease-out hover:scale-105 hover:shadow-[0_4px_20px_rgba(32,32,64,0.8)] hover:animate-pulse ${
+          scrolled
+            ? "bg-gradient-to-r from-blue-900 via-purple-800 to-teal-700"
+            : "bg-gray-800"
+        }`}
+      >
+        <MdEmail
+          size={21}
+          className={`transition-colors duration-500 ease-in-out ${
+            scrolled ? "text-teal-300" : "text-gray-500"
+          }`}
+        />
+      </div>
+
+      <div
+        className={`p-2 rounded-full transition-all duration-700 ease-out hover:scale-105 hover:shadow-[0_4px_20px_rgba(32,32,64,0.8)] hover:animate-pulse ${
+          scrolled
+            ? "bg-gradient-to-r from-blue-900 via-purple-800 to-teal-700"
+            : "bg-gray-800"
+        }`}
+      >
+        <FaLocationDot
+          size={21}
+          className={`transition-colors duration-500 ease-in-out ${
+            scrolled ? "text-teal-300" : "text-gray-500"
+          }`}
+        />
+      </div>
+    </div>
         </div>
       </header>
     </>
