@@ -324,12 +324,11 @@ export default function WhyDestinedEstates() {
           <OurValues />
         </div>
 
-       {/* Global Section with Modern Clean Look */}
-       <GlobalSection/>
-
+        {/* Global Section with Modern Clean Look */}
+        <GlobalSection />
 
         {/* About Us Section */}
-       < AboutUsSection/>
+        <AboutUsSection />
       </div>
     </ParallaxProvider>
   );

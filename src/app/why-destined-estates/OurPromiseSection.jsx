@@ -1,17 +1,17 @@
-import { useState, useEffect } from 'react';
-import { motion } from 'framer-motion';
+import { useState, useEffect } from "react";
+import { motion } from "framer-motion";
 
 const clipPathVariants = {
   initial: {
-    clipPath: 'polygon(0 0, 0 0, 0 0)', // Fully closed
+    clipPath: "polygon(0 0, 0 0, 0 0)" // Fully closed
   },
   animate: {
-    clipPath: 'polygon(200% 0, 0 0, 0 200%)', // Fully open
+    clipPath: "polygon(200% 0, 0 0, 0 200%)", // Fully open
     transition: {
       duration: 1.5,
-      ease: 'easeInOut',
-    },
-  },
+      ease: "easeInOut"
+    }
+  }
 };
 
 const ImageCarousel = ({ images }) => {
@@ -37,10 +37,10 @@ const ImageCarousel = ({ images }) => {
           className="absolute inset-0 w-full h-full object-cover"
           initial={{ opacity: 1 }}
           animate={{ opacity: 0 }}
-          transition={{ duration: 1.5, ease: 'easeInOut' }}
+          transition={{ duration: 1.5, ease: "easeInOut" }}
         />
       )}
-      
+
       <motion.img
         key={images[currentImageIndex]}
         src={images[currentImageIndex]}
@@ -57,9 +57,9 @@ const ImageCarousel = ({ images }) => {
 // Our Promise Section with ImageCarousel
 const OurPromiseSection = () => {
   const images = [
-    '/static/Assets/promise1.jpg',
-    '/static/Assets/promise2.jpg',
-    '/static/Assets/promise3.jpg',
+    "/static/Assets/promise1.jpg",
+    "/static/Assets/promise2.jpg",
+    "/static/Assets/promise3.jpg"
   ];
 
   return (

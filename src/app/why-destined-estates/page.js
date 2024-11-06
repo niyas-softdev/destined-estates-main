@@ -19,8 +19,8 @@ const Page = () => {
                 alt="Who We Are"
                 className="w-full h-[300px] object-cover"
               />
-                           {/* Dark overlay with blur effect */}
-                           <div className="absolute inset-0 bg-black/20  z-10"></div>
+              {/* Dark overlay with blur effect */}
+              <div className="absolute inset-0 bg-black/20  z-10"></div>
             </div>
           </div>
 
