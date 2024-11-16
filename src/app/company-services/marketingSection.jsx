@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import Wavify from "react-wavify";
 import Image from "next/image";
 
@@ -64,22 +64,24 @@ function MarketingSection() {
             transition={{ duration: 0.8, delay: index * 0.2 }}
           >
             <div className="relative w-full h-[200px] sm:h-[250px] md:h-[300px] overflow-hidden rounded-lg shadow-lg">
-              <motion.div
-                key={images[category][currentImageIndex[category]]}
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                exit={{ opacity: 0 }}
-                transition={{ duration: 1 }}
-                className="absolute inset-0"
-              >
-                <Image
-                  src={images[category][currentImageIndex[category]]}
-                  alt={category.replace(/([A-Z])/g, " $1")}
-                  layout="fill"
-                  objectFit="cover"
-                  className="rounded-lg"
-                />
-              </motion.div>
+              <AnimatePresence mode="wait">
+                <motion.div
+                  key={images[category][currentImageIndex[category]]}
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  exit={{ opacity: 0 }}
+                  transition={{ duration: 0.8 }}
+                  className="absolute inset-0"
+                >
+                  <Image
+                    src={images[category][currentImageIndex[category]]}
+                    alt={category.replace(/([A-Z])/g, " $1")}
+                    layout="fill"
+                    objectFit="cover"
+                    className="rounded-lg"
+                  />
+                </motion.div>
+              </AnimatePresence>
             </div>
             <h4 className="text-xl sm:text-2xl font-semibold mt-4 text-center text-[#e7a3a8] capitalize">
               {category.replace(/([A-Z])/g, " $1")}
