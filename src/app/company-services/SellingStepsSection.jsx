@@ -4,9 +4,9 @@ import { useState, useEffect } from 'react';
 
 const SellingStepsSection = () => {
     const images = [
-        "/static/Assets/promise2.jpg",
-        "/static/Assets/promise1.jpg",
-        "/static/Assets/promise3.jpg",
+        "/static/WhoWeAre/agents4.jpg",
+        "/static/WhoWeAre/agents5.jpg",
+        "/static/WhoWeAre/agents6.jpg",
         "/static/Assets/promise.jpg"
     ];
     const [currentImageIndex, setCurrentImageIndex] = useState(0);
@@ -26,30 +26,30 @@ const SellingStepsSection = () => {
                 whileInView={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.8, ease: "easeOut" }}
             >
-                <h3 className="text-3xl md:text-5xl font-bold text-[#4ADE80]">
+                <h3 className="text-3xl md:text-5xl font-bold text-[#FF6347]">
                     Steps to Sell Your Home
                 </h3>
-                <p className="text-md md:text-lg text-gray-200 leading-relaxed max-w-lg">
+                <p className="text-md md:text-lg text-[#FFF8DC] leading-relaxed max-w-lg">
                     The best thing you can do to ensure a smooth and quick sale is to choose a trusted Destined Professional. Our agents offer cutting-edge technology, comprehensive marketing strategies, and expert guidance throughout the real estate process.
                 </p>
-                <p className="text-md md:text-lg text-gray-200 leading-relaxed max-w-lg">
+                <p className="text-md md:text-lg text-[#FFF8DC] leading-relaxed max-w-lg">
                     We understand the market intricacies and will work with you to set a competitive and fair price for your home. From preparation to closing, we are with you every step of the way to ensure a seamless selling experience.
                 </p>
                 <ul className="list-disc space-y-3 text-gray-300 pl-5 max-w-md">
                     <li className="text-md lg:text-lg hover:text-teal-400 transition-colors duration-200">
-                        <span className="font-semibold text-[#4ADE80]">Choose your Destined Agent</span>
+                        <span className="font-semibold text-[#FF6347]">Choose your Destined Agent</span>
                     </li>
                     <li className="text-md lg:text-lg hover:text-teal-400 transition-colors duration-200">
-                        <span className="font-semibold text-[#4ADE80]">Prepare your home for sale</span>
+                        <span className="font-semibold text-[#FF6347]">Prepare your home for sale</span>
                     </li>
                     <li className="text-md lg:text-lg hover:text-teal-400 transition-colors duration-200">
-                        <span className="font-semibold text-[#4ADE80]">Determine your home&#39;s value</span>
+                        <span className="font-semibold text-[#FF6347]">Determine your home&#39;s value</span>
                     </li>
                     <li className="text-md lg:text-lg hover:text-teal-400 transition-colors duration-200">
-                        <span className="font-semibold text-[#4ADE80]">Accept the offer</span>
+                        <span className="font-semibold text-[#FF6347]">Accept the offer</span>
                     </li>
                     <li className="text-md lg:text-lg hover:text-teal-400 transition-colors duration-200">
-                        <span className="font-semibold text-[#4ADE80]">Close on your home</span>
+                        <span className="font-semibold text-[#FF6347]">Close on your home</span>
                     </li>
                 </ul>
             </motion.div>
