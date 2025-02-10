@@ -1,113 +1,185 @@
-import React from 'react';
-import { motion } from 'framer-motion';
+import React, { useEffect, useState } from "react";
+import { motion } from "framer-motion";
+import Image from "next/image";
+
+const leadershipTimeline = [
+  {
+    title: "Early Life & Education",
+    year: "2000s",
+    description:
+      "Rufus completed his college education in Switzerland before gaining business experience in the U.S., working alongside elite professionals in luxury real estate.",
+    img: "/static/Assets/ownerpic/pic1.jpg",
+  },
+  {
+    title: "Career in Real Estate",
+    year: "2010s",
+    description:
+      "Recognized as a dynamic and high-performing agent, Rufus built his expertise and network among high-net-worth individuals in the global real estate market.",
+    img: "/static/Assets/ownerpic/pic2.jpg",
+  },
+  {
+    title: "Destined Estates Established",
+    year: "2023",
+    description:
+      "With over 12+ years of experience, Rufus founded Destined Estates (OPC) Private Limited, an elite real estate firm catering to luxury property clients worldwide.",
+    img: "/static/Assets/ownerpic/pic1.jpg",
+  },
+  {
+    title: "Present & Future",
+    year: "2024",
+    description:
+      "Rufus continues to lead a team of seasoned professionals, offering exclusive luxury real estate solutions to elite clients globally.",
+    img: "/static/Assets/ownerpic/pic3.jpg",
+  },
+];
 
 const Leadership = () => {
-  // Animation variants for text reveal with scale
-  const textVariants = {
-    hidden: { opacity: 0, y: 50, scale: 0.95 },
-    visible: { opacity: 1, y: 0, scale: 1 },
-  };
+  const [activeIndex, setActiveIndex] = useState(0);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const items = document.querySelectorAll(".timeline-item");
+      const windowTop = window.scrollY + window.innerHeight / 2;
+
+      items.forEach((item, index) => {
+        const offsetTop = item.offsetTop;
+        const offsetBottom = offsetTop + item.clientHeight;
+
+        if (windowTop >= offsetTop && windowTop <= offsetBottom) {
+          setActiveIndex(index);
+        }
+      });
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   return (
-    <div className="flex flex-col lg:flex-row lg:gap-12">
-      {/* Title with Image Section */}
-      <div id="title-with-image" className="pb-10 pt-10 lg:w-1/3">
-        <div className="w-full flex flex-col items-center sticky top-36">
-          {/* Image */}
-          <div className="relative w-48 h-[50%] md:w-64 md:h-[60%] lg:w-72 lg:h-[70%] mb-4 overflow-hidden shadow-lg border-2 border-gray-300 rounded-lg hover:shadow-xl transition-shadow duration-300">
-  <img
-    src="/static/Assets/ownerpic/pic1.jpg"
-    alt="Rufus"
-    className="w-full h-full object-cover object-center"
-  />
-  {/* Optional Gradient Overlay */}
-  <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent"></div>
-</div>
+    <div className="relative min-h-screen flex flex-col items-center justify-center bg-gray-900 text-white overflow-hidden">
+      {/* Background Image with Parallax Effect */}
+      <motion.div
+        className="absolute inset-0 bg-cover bg-center transition-all duration-700"
+        style={{
+          backgroundImage: `url(${leadershipTimeline[activeIndex]?.img})`,
+        }}
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 1 }}
+      >
+        <div className="absolute inset-0 bg-black bg-opacity-60"></div>
+      </motion.div>
 
+      {/* Main Content */}
+      <div className="relative z-10 w-full max-w-6xl px-6 py-16">
+        <h2 className="text-5xl font-bold text-center text-white mb-12">
+          Leadership Journey
+        </h2>
 
-          {/* Name */}
-          <h2 className="text-2xl md:text-3xl font-bold text-center">Rufus Tenola Vinoth</h2>
-          {/* Position */}
-          <p className="text-lg text-gray-500 text-center">Founder &#38; President</p>
+        {/* Timeline Layout */}
+        <div className="flex flex-col lg:flex-row gap-12">
+          {/* Profile Section */}
+          <motion.div
+            id="profile"
+            className="lg:w-1/3 sticky top-24 flex flex-col items-center"
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.8 }}
+          >
+            <div className="relative w-72 h-72 rounded-full overflow-hidden shadow-xl border-4 border-gray-200">
+              <Image
+                src="/static/Assets/ownerpic/pic1.jpg"
+                alt="Rufus Tenola Vinoth"
+                layout="fill"
+                objectFit="cover"
+              />
+            </div>
+            <h2 className="text-3xl font-bold text-white mt-4">
+              Rufus Tenola Vinoth
+            </h2>
+            <p className="text-lg text-gray-300">Founder & President</p>
+          </motion.div>
+
+          {/* Timeline Section */}
+          <div className="w-full lg:w-2/3">
+            <div className="relative border-l-4 border-gray-700 pl-6">
+              {leadershipTimeline.map((item, index) => (
+                <motion.div
+                  key={index}
+                  className={`timeline-item relative py-10 transition-all duration-500 $ {
+                    activeIndex === index ? "opacity-100 scale-105" : "opacity-50 scale-95"
+                  }`}
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.6, delay: index * 0.2 }}
+                >
+                  <motion.div className="absolute -left-10 w-10 h-10 flex items-center justify-center rounded-full bg-[#ff8200] text-white text-lg font-bold shadow-lg">
+                    {item.year}
+                  </motion.div>
+                  <motion.div className="bg-gray-800 p-6 rounded-lg shadow-lg hover:scale-105 transition-all duration-300 cursor-pointer">
+                    <h3 className="text-xl font-semibold">{item.title}</h3>
+                    <p className="text-gray-300 mt-2">{item.description}</p>
+                  </motion.div>
+                </motion.div>
+              ))}
+            </div>
+          </div>
         </div>
       </div>
 
-      {/* Scrollable Content Section */}
-      <div id="scrollable" className="w-full lg:w-2/3 flex flex-col items-center justify-center text-lg my-8 md:my-5">
-        <div className="max-w-4xl space-y-6 px-5">
-          {/* Paragraph 1 */}
-          <motion.div
-            className="scroll-div"
-            variants={textVariants}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, amount: 0.2 }}
-            transition={{ duration: 0.6, delay: 0.2, ease: "easeOut" }}
-          >
-            <p className="text-lg md:text-xl text-gray-700 leading-relaxed">
-              As the founder of Destined Estates (OPC) Private Limited, Rufus is a dominant force within
-              the Chennai Luxury real estate community. Having done his college education in
-              Switzerland and following it up with an employment in a multi&#8211;million&#8211;dollar golf club in
-              New York, United States of America, Rufus has built his expertise in business from a
-              western point of view working alongside Americans and people from all around the world,
-              quickly mastering the art of buying, selling, and investing real estate.
-            </p>
-          </motion.div>
+      {/* New Sections */}
+      <section className="w-full bg-gray-800 py-16 z-10 text-center">
+        <h2 className="text-4xl font-bold text-white mb-4">Our Vision</h2>
+        <p className="text-lg text-gray-300 max-w-3xl mx-auto">
+          We aim to redefine luxury real estate by offering unparalleled service and elite property experiences.
+        </p>
+      </section>
 
-          {/* Paragraph 2 */}
-          <motion.div
-            className="scroll-div"
-            variants={textVariants}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, amount: 0.2 }}
-            transition={{ duration: 0.6, delay: 0.4, ease: "easeOut" }}
-          >
-            <p className="text-lg md:text-xl text-gray-700 leading-relaxed">
-              Recognized as one of the most dynamic, high-performing agents in the luxury home real
-              estate market, Rufus Tenola Vinoth has over 12+ years of experience in the elite real estate
-              sector. Having sold properties worth millions of rupees over a career spanning more than
-              a decade puts him in a league of his own.
-            </p>
-          </motion.div>
+      <section className="w-full bg-gray-900 py-16 z-10 text-center">
+        <h2 className="text-4xl font-bold text-white mb-4">Our Achievements</h2>
+        <p className="text-lg text-gray-300 max-w-3xl mx-auto">
+          With over a decade of experience, we've facilitated luxury real estate transactions worldwide.
+        </p>
+      </section>
 
-          {/* Paragraph 3 */}
-          <motion.div
-            className="scroll-div"
-            variants={textVariants}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, amount: 0.2 }}
-            transition={{ duration: 0.6, delay: 0.6, ease: "easeOut" }}
-          >
-            <p className="text-lg md:text-xl text-gray-700 leading-relaxed">
-              Rufus specializes in selling and marketing some of the finest and most iconic residential
-              properties to his connections and network of high&#8211;net&#8211;worth individuals. His
-              uncompromising professionalism and tenacious drive have yielded his unheard&#8211;of rapid
-              rise in the luxury real estate industry.
-            </p>
-          </motion.div>
-
-          {/* Paragraph 4 */}
-          <motion.div
-            className="scroll-div"
-            variants={textVariants}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, amount: 0.2 }}
-            transition={{ duration: 0.6, delay: 0.8, ease: "easeOut" }}
-          >
-            <p className="text-lg md:text-xl text-gray-700 leading-relaxed">
-              Rufus has implemented top-notch professionalism in the luxury real estate field to develop
-              his own team of seasoned professionals. In 2023, Rufus expanded his more than a
-              decade+ years of experience into an elite real estate firm named Destined Estates (OPC)
-              Private Limited. Today Destined Estates exists to serve elite clientele from all around
-              the world, catering to their luxury property needs and wants. Rufus&#39;s passion for teaching
-              others how to achieve success is realized through his team of highly coveted agents.
-            </p>
-          </motion.div>
+      <section className="w-full bg-gray-800 py-16 z-10 text-center">
+        <h2 className="text-4xl font-bold text-white mb-4">Join Our Team</h2>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-6xl mx-auto">
+          <div className="bg-gray-700 p-6 rounded-lg shadow-lg text-left">
+            <h3 className="text-2xl font-bold text-white">Full-time Designer</h3>
+            <p className="text-gray-300 mt-2">Design innovative user experiences for our global clientele.</p>
+            <p className="text-gray-400 mt-4">Salary: $75,000 USD</p>
+            <p className="text-gray-400">Location: Remote</p>
+          </div>
+          <div className="bg-gray-700 p-6 rounded-lg shadow-lg text-left">
+            <h3 className="text-2xl font-bold text-white">Laravel Developer</h3>
+            <p className="text-gray-300 mt-2">Develop scalable backend systems using modern tools and techniques.</p>
+            <p className="text-gray-400 mt-4">Salary: $125,000 USD</p>
+            <p className="text-gray-400">Location: San Francisco, CA</p>
+          </div>
+          <div className="bg-gray-700 p-6 rounded-lg shadow-lg text-left">
+            <h3 className="text-2xl font-bold text-white">React Native Developer</h3>
+            <p className="text-gray-300 mt-2">Create mobile-first experiences for a luxury-focused audience.</p>
+            <p className="text-gray-400 mt-4">Salary: $105,000 USD</p>
+            <p className="text-gray-400">Location: New York, NY</p>
+          </div>
         </div>
-      </div>
+      </section>
+
+      <section className="w-full bg-gray-900 py-16 z-10 text-center">
+        <h2 className="text-4xl font-bold text-white mb-4">Testimonials</h2>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-6xl mx-auto">
+          <div className="bg-gray-800 p-6 rounded-lg shadow-lg">
+            <p className="text-lg text-gray-300">"An exceptional experience with a truly professional team. They exceeded all expectations!"</p>
+            <p className="text-gray-400 mt-4">- Client A</p>
+          </div>
+          <div className="bg-gray-800 p-6 rounded-lg shadow-lg">
+            <p className="text-lg text-gray-300">"The most seamless real estate transaction I've ever experienced. Highly recommend!"</p>
+            <p className="text-gray-400 mt-4">- Client B</p>
+          </div>
+        </div>
+      </section>
     </div>
   );
 };

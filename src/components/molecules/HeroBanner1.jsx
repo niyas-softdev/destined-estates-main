@@ -56,7 +56,7 @@ const HeroBanner1 = () => {
                 <h5 className="text-base lg:text-lg text-center lg:text-left font-opensans">
                     The place where Destiny is fulfilled
                 </h5>
-                <a href="/about-us/who-we-are.html" className="mt-4 px-6 py-2 bg-transparent text-white relative overflow-hidden group border border-white font-opensans">
+                <a href="/who-we-are" className="mt-4 px-6 py-2 bg-transparent text-white relative overflow-hidden group border border-white font-opensans">
                     <div className="flex items-center">
                         <span className="relative z-0 mr-5">Destined Estate Overview</span>
                         <FaArrowRightLong />

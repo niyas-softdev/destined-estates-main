@@ -6,72 +6,45 @@ const sections = [
   {
     id: "assets-solutions",
     title: "Let us get you the Destined service that you desire.",
-    content: `Our full suite of real estate services will transform your buying & selling experience. We Leverage our deep knowledge of the property sites and processes, with advanced sales strategies, and streamlined workflows to provide a predictable and comprehensive experience, every time you work with us.`,
+    content: `Our full suite of real estate services will transform your buying & selling experience. We leverage our deep knowledge of property sites and processes, with advanced sales strategies, and streamlined workflows to provide a predictable and comprehensive experience, every time you work with us.`,
     images: [
       "/static/Assets&solution/img1.jpg",
       "/static/Assets&solution/img2.jpg",
-      "/static/Assets&solution/img3.jpg"
-    ]
+      "/static/Assets&solution/img3.jpg",
+    ],
   },
   {
     id: "buying-selling",
-    title: "Buying and selling of Assests",
-    content: `We know your assets and the procedures better than anyone. Our client-oriented teams
-provide you with best-in-class service. We provide full site analysis and inspection,
-collocation with application of various marketing strategies in successfully selling the
-asset as per market value, in the same time assuring the buyer for the best return on
-Invesment.`,
+    title: "Buying and Selling of Assets",
+    content: `We know your assets and the procedures better than anyone. Our client-oriented teams provide you with best-in-class service. We provide full site analysis and inspection, collaboration with application of various marketing strategies, and successful selling of the asset at market value, while assuring the buyer of the best return on investment.`,
     images: [
       "/static/Assets&solution/sellsAssets1.jpg",
       "/static/Assets&solution/sellsAssets2.jpg",
-      "/static/Assets&solution/sellsAssets3.jpg"
-    ]
+      "/static/Assets&solution/sellsAssets3.jpg",
+    ],
   },
   {
     id: "navigating-challenges",
-    title: "Navigating Complex challenges and increasing sales bandwidth",
-    content: `It takes dedicated resources and specialized knowledge to accomplish a successful sale.
-To which our team works tirelessly integrating complex coordination along with navigating
-regulatory processes and obtaining precise market value for each and every property for a
-smooth transition of sale. Even with resources in place, managing sale timelines,
-coordinating with investors, sellers, landlords, and monitoring quality control of services
-offered and adherence to ensuring masterful negotiation strategies requires a high level of
-oversight and takes resources from our core business.`,
+    title: "Navigating Complex Challenges and Increasing Sales Bandwidth",
+    content: `It takes dedicated resources and specialized knowledge to accomplish a successful sale. Our team works tirelessly to integrate complex coordination along with navigating regulatory processes and obtaining precise market values for smooth property sales. Managing sale timelines, coordinating with investors, sellers, and landlords, and ensuring adherence to negotiation strategies requires a high level of oversight and resources.`,
     images: [
       "/static/Assets&solution/img4.jpg",
       "/static/Assets&solution/img5.jpg",
-      "/static/Assets&solution/img6.jpg"
-    ]
-  }
-];
-
-const clipPathVariants = {
-  initial: {
-    clipPath: "polygon(0 0, 0 0, 0 0)" // Fully closed
+      "/static/Assets&solution/img6.jpg",
+    ],
   },
-  animate: {
-    clipPath: "polygon(200% 0, 0 0, 0 200%)", // Fully open, revealing the entire image
-    transition: {
-      duration: 1.5, // Adjust the duration to control the speed of the transition
-      ease: "easeInOut" // Smooth easing
-    }
-  }
-};
+];
 
 const AssetSolutions = () => {
   return (
-    <div className="container mx-auto px-6 py-20 font-tiempos">
+    <div className="container mx-auto px-6 py-20">
       {/* Hero Section */}
       <div className="text-center mb-20">
-        <h1 className="text-5xl font-extrabold text-gray-900 tracking-tight leading-tight">
-          Asset Solutions <span className="text-blue-600">Tailored</span> to
-          Your Needs
+        <h1 className="text-5xl font-extrabold text-gray-900 leading-tight">
+          Asset Solutions <span className="text-blue-600">Tailored</span> to Your Needs
         </h1>
-        <p className="text-lg text-gray-500 mt-6 max-w-3xl mx-auto leading-relaxed tracking-wide">
-          At Destined Estates, we combine industry expertise with innovative
-          strategies to help you navigate the complexities of real estate
-          transactions, offering results-driven solutions for buying and selling
-          your assets.
+        <p className="text-lg text-gray-500 mt-6 max-w-3xl mx-auto leading-relaxed">
+          At Destined Estates, we combine industry expertise with innovative strategies to help you navigate the complexities of real estate transactions, offering results-driven solutions for buying and selling your assets.
         </p>
       </div>
 
@@ -89,15 +62,15 @@ const AssetSolutions = () => {
           >
             {/* Text Content */}
             <div className="lg:w-2/5 text-center lg:text-left">
-              <h2 className="text-4xl font-semibold text-gray-900 mb-6 tracking-tight leading-tight">
+              <h2 className="text-4xl font-semibold text-gray-900 mb-6">
                 {section.title}
               </h2>
-              <p className="text-base md:text-lg lg:text-xl font-light text-gray-600 leading-relaxed tracking-wider">
+              <p className="text-base md:text-lg lg:text-xl text-gray-600 leading-relaxed">
                 {section.content}
               </p>
             </div>
 
-            {/* Image with Animation and Carousel */}
+            {/* Image Carousel */}
             <ImageCarousel images={section.images} />
           </motion.div>
         </Element>
@@ -112,36 +85,35 @@ const ImageCarousel = ({ images }) => {
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setPrevImageIndex(currentImageIndex); // Keep track of the previous image index
+      setPrevImageIndex(currentImageIndex);
       setCurrentImageIndex((prevIndex) => (prevIndex + 1) % images.length);
-    }, 3000); // Change image every 3 seconds
+    }, 3000);
 
-    return () => clearInterval(interval); // Cleanup the interval on component unmount
+    return () => clearInterval(interval);
   }, [currentImageIndex, images.length]);
 
   return (
-    <div className="lg:w-3/5 h-[500px] relative overflow-hidden">
+    <div className="w-full lg:w-3/5 h-[300px] sm:h-[400px] lg:h-[500px] relative overflow-hidden">
       {/* Previous Image */}
       {prevImageIndex !== null && (
         <motion.img
           key={images[prevImageIndex]}
           src={images[prevImageIndex]}
-          alt="Real estate"
+          alt=""
           className="absolute inset-0 w-full h-full object-cover"
           initial={{ opacity: 1 }}
           animate={{ opacity: 0 }}
           transition={{ duration: 1.5, ease: "easeInOut" }}
         />
       )}
-
       {/* Current Image */}
       <motion.img
         key={images[currentImageIndex]}
         src={images[currentImageIndex]}
-        alt="Real estate"
+        alt=""
         className="absolute inset-0 w-full h-full object-cover"
-        initial={{ opacity: 0, clipPath: "polygon(0 0, 0 0, 0 0)" }} // Fully hidden and clipped initially
-        animate={{ opacity: 1, clipPath: "polygon(200% 0, 0 0, 0 200%)" }} // Fully visible with clipPath
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
         transition={{ duration: 1.5, ease: "easeInOut" }}
       />
     </div>

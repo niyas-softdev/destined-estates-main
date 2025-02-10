@@ -1,11 +1,11 @@
 const Footer = () => {
   return (
-    <footer className="bg-gradient-to-r from-gray-900 via-gray-800 to-black text-white p-12 w-full">
-      <div className="container max-w-6xl grid grid-cols-1 md:grid-cols-3 gap-12">
+    <footer className="bg-gradient-to-r from-gray-900 via-gray-800 to-black text-white px-6 py-12 w-full">
+      <div className="container mx-auto max-w-6xl grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-12">
         {/* Left Section */}
         <div>
           <h2 className="text-2xl font-semibold mb-4">Destined Estates</h2>
-          <p className="text-gray-400 mb-6">
+          <p className="text-gray-400 mb-6 leading-relaxed">
             Building trust and excellence in real estate, one property at a
             time.
           </p>
@@ -18,8 +18,7 @@ const Footer = () => {
               <img
                 src="/static/icons/linkedin.png"
                 alt="LinkedIn logo"
-                width={24}
-                height={24}
+                className="w-6 h-6"
               />
             </a>
             <a
@@ -30,8 +29,7 @@ const Footer = () => {
               <img
                 src="/static/icons/x.png"
                 alt="Twitter logo"
-                width={24}
-                height={24}
+                className="w-6 h-6"
               />
             </a>
             <a
@@ -42,8 +40,7 @@ const Footer = () => {
               <img
                 src="/static/icons/youtube.png"
                 alt="YouTube logo"
-                width={28}
-                height={28}
+                className="w-7 h-7"
               />
             </a>
           </div>
@@ -116,8 +113,8 @@ const Footer = () => {
 
       {/* Footer Bottom Links */}
       <div className="mt-10 border-t border-gray-700 pt-6">
-        <div className="container mx-auto flex flex-col md:flex-row justify-between items-center text-sm font-medium text-gray-400 space-y-4 md:space-y-0">
-          <div className="flex space-x-6">
+        <div className="container mx-auto flex flex-col sm:flex-row justify-between items-center text-sm font-medium text-gray-400 space-y-4 sm:space-y-0">
+          <div className="flex flex-wrap justify-center sm:justify-start space-x-6">
             <a
               href="#"
               className="hover:text-[#ff8200] transition-colors duration-300"
@@ -155,7 +152,9 @@ const Footer = () => {
               Complaints Policy
             </a>
           </div>
-          <p className="mt-4 md:mt-0 text-gray-500">© 2024 Destined Estates</p>
+          <p className="mt-4 sm:mt-0 text-gray-500 text-center sm:text-right">
+            © 2024 Destined Estates
+          </p>
         </div>
       </div>
     </footer>

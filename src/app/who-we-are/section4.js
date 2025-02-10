@@ -22,40 +22,14 @@ const ParallaxCarousel = () => {
     <Parallax
       bgImage={slides[currentSlide]}
       strength={400}
-      className="h-screen flex items-center justify-center"
+      className="h-screen flex items-center justify-end"
       bgImageStyle={{ objectFit: "cover", width: "100%", height: "100%" }}
     >
-      <div
-       style={{
-        background: "rgba(255, 255, 255, 0.75)",
-        padding: "2.5rem",
-        margin: "1rem",
-        borderRadius: "8px",
-        width: "50%",
-        textAlign: "left",
-        fontFamily: "sans-serif",
-        alignSelf: "flex-start", // Aligns to the top-right corner
-        marginLeft: "auto", // Pushes the content to the right
-        marginRight: "2rem" // Adds some space from the right edge
-      }}
-      >
-        <h1
-          style={{
-            color: "#4B0082",
-            fontSize: "2rem",
-            fontWeight: "bold",
-            marginBottom: "1rem"
-          }}
-        >
+      <div className="bg-white bg-opacity-75 p-6 md:p-10 rounded-lg max-w-lg md:max-w-2xl lg:max-w-3xl text-left font-sans self-start ml-auto mr-8 md:mr-16">
+        <h1 className="text-indigo-800 text-2xl md:text-3xl font-bold mb-4">
           Turning Insights into Action
         </h1>
-        <p
-          style={{
-            fontSize: "1rem",
-            lineHeight: "1.6",
-            color: "#333"
-          }}
-        >
+        <p className="text-sm md:text-base text-gray-700 leading-relaxed">
           We leverage this intelligence to source, execute, manage and realize
           Properties for the benefit of our clients and partners. With seasoned
           professionals on our side, we have the expertise and scale to support

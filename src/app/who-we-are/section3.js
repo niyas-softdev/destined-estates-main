@@ -26,39 +26,21 @@ const ParallaxCarousel = () => {
       bgImageStyle={{ objectFit: "cover", width: "100%", height: "100%" }}
     >
       <div
+        className="bg-white/75 p-6 md:p-10 rounded-lg w-11/12 sm:w-3/4 lg:w-2/3 xl:w-1/2 text-left"
         style={{
-          background: "rgba(255, 255, 255, 0.75)",
-          padding: "2.5rem",
-          margin: "1rem",
-          borderRadius: "8px",
-          width: "60%",
-          textAlign: "left",
-          fontFamily: "sans-serif"
+          backdropFilter: "blur(10px)" // Subtle blur effect for readability
         }}
       >
-        <h1
-          style={{
-            color: "#4B0082",
-            fontSize: "2rem",
-            fontWeight: "bold",
-            marginBottom: "1rem"
-          }}
-        >
+        <h1 className="text-indigo-800 text-xl sm:text-2xl lg:text-3xl font-bold mb-4">
           Gathering Operational Intelligence
         </h1>
-        <p
-          style={{
-            fontSize: "1rem",
-            lineHeight: "1.6",
-            color: "#333"
-          }}
-        >
+        <p className="text-gray-700 text-sm sm:text-base lg:text-lg leading-relaxed">
           Our operations in strategic locations around the city of Chennai,
           provide us with data and insights into trends and changes in the
-          market. You can count on our client centric teams to deliver an
-          efficient and predictable experience. Our in&#8208;house teams of
-          sales managers and rental specialists support your journey with us
-          from start to finish.
+          market. You can count on our client-centric teams to deliver an
+          efficient and predictable experience. Our in-house teams of sales
+          managers and rental specialists support your journey with us from
+          start to finish.
         </p>
       </div>
     </Parallax>

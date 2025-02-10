@@ -22,44 +22,21 @@ const ParallaxCarousel = () => {
     <Parallax
       bgImage={slides[currentSlide]}
       strength={400}
-      className="h-screen flex items-center justify-center"
+      className="h-screen flex items-center justify-start"
       bgImageStyle={{ objectFit: "cover", width: "100%", height: "100%" }}
     >
-      <div
-        style={{
-          background: "rgba(255, 255, 255, 0.75)",
-          padding: "2.5rem",
-          margin: "1rem",
-          borderRadius: "8px",
-          width: "60%",
-          textAlign: "left",
-          fontFamily: "sans-serif"
-        }}
-      >
-        <h1
-          style={{
-            color: "#4B0082",
-            fontSize: "2rem",
-            fontWeight: "bold",
-            marginBottom: "1rem"
-          }}
-        >
+      <div className="bg-white bg-opacity-75 p-6 md:p-10 rounded-lg max-w-lg md:max-w-2xl lg:max-w-3xl text-left font-sans self-start ml-auto mr-8 md:mr-16 sm:self-center sm:mx-auto">
+        <h1 className="text-indigo-800 text-2xl md:text-3xl font-bold mb-4">
           Connecting with Confidence
         </h1>
-        <p
-          style={{
-            fontSize: "1rem",
-            lineHeight: "1.6",
-            color: "#333"
-          }}
-        >
+        <p className="text-sm md:text-base text-gray-700 leading-relaxed">
           The Destined Estates Ecosystem drives competitive advantages in
           sourcing, executing, managing, and realizing Properties. With a focus
-          of maximizing efficiency and streamlining processes, we are committed
+          on maximizing efficiency and streamlining processes, we are committed
           to leveraging technology, such as online real estate portals, digital
-          marketing platforms, our site locater online makes up for reliable
-          real estate site information, so the clients can make informed
-          decisions about their investments, monetary coverage and capacity
+          marketing platforms, and our site locator online, which provides reliable
+          real estate site information. This enables clients to make informed
+          decisions about their investments, monetary coverage, and capacity
           goals.
         </p>
       </div>
